@@ -24,16 +24,20 @@ namespace Tippekupong
         {
             Console.Write("Gyldig tips: \r\n - H, U, B\r\n - halvgardering: HU, HB, UB\r\n - helgardering: HUB\r\nHva har du tippet for denne kampen? ");
             MatchIsRunning = true;
-            Bet = Console.ReadLine();
+            Bet = Console.ReadLine().ToUpper();
             while (MatchIsRunning)
             {
                 Console.Write("Kommandoer: \r\n - H = scoring hjemmelag\r\n - B = scoring bortelag\r\n - X = kampen er ferdig\r\nAngi kommando: ");
-                var command = Console.ReadLine();
+                var command = Console.ReadLine().ToUpper();
                 MatchIsRunning = command != "X";
                 if (command == "H") HomeGoals++;
                 else if (command == "B") AwayGoals++;
                 Console.WriteLine($"Stillingen er {HomeGoals}-{AwayGoals}.");
             }
+            var result = HomeGoals == AwayGoals ? "U" : HomeGoals > AwayGoals ? "H" : "B";
+            var isBetCorrect = Bet.Contains(result);
+            var isBetCorrectText = isBetCorrect ? "riktig" : "feil";
+            Console.WriteLine($"Du tippet {isBetCorrectText}");
         }
     }
 }
