@@ -23,7 +23,6 @@ namespace Tippekupong
                 matches.ShowCorrectCount();
             }
             matches.ShowCorrectCount();
-
         }
 
         //private static void OppgaveEn()

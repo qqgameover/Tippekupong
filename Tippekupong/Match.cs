@@ -64,11 +64,5 @@ namespace Tippekupong
         {
             return $"Stillingen er {HomeGoals}-{AwayGoals}.";
         }
-
-        public bool IsMatchRunning()
-        {
-            if (MatchIsRunning) return true;
-            return false;
-        }
     }
 }
