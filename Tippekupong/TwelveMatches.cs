@@ -5,8 +5,8 @@ namespace Tippekupong
 {
     class TwelveMatches
     {
-        public string[] Bets;
-        public Match[] Matches;
+        public string[] Bets { get; private set; }
+        public Match[] Matches { get; private set; }
 
         public TwelveMatches(string betsText)
         {
