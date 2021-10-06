@@ -10,10 +10,11 @@ namespace Tippekupong
         public bool MatchIsRunning;
         public string Bet;
 
-        public Match()
+        public Match(string betstr)
         {
             HomeGoals = 0;
             AwayGoals = 0;
+            Bet = betstr;
             MatchIsRunning = false;
         }
 
@@ -48,19 +49,26 @@ namespace Tippekupong
                     StopMatch();
                     break;
             }
-            GetScore();
+
+            Console.WriteLine(GetScore());
         }
 
-        private bool IsBetCorrect()
+        public bool IsBetCorrect()
         {
             var result = HomeGoals == AwayGoals ? "U" : HomeGoals > AwayGoals ? "H" : "B";
             var isBetCorrect = Bet.Contains(result);
             return isBetCorrect;
         }
 
-        private void GetScore()
+        public string GetScore()
         {
-            Console.WriteLine($"Stillingen er {HomeGoals}-{AwayGoals}.");
+            return $"Stillingen er {HomeGoals}-{AwayGoals}.";
+        }
+
+        public bool IsMatchRunning()
+        {
+            if (MatchIsRunning) return true;
+            return false;
         }
     }
 }
